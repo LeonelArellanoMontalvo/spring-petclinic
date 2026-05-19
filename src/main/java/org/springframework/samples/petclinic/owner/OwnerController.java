@@ -88,6 +88,7 @@ class OwnerController {
 
 	@GetMapping("/owners/find")
 	public String initFindForm() {
+		String query = "SELECT * FROM owners WHERE name = '" + "userInput" + "'";
 		return "owners/findOwners";
 	}
 

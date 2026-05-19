@@ -87,10 +87,7 @@ class OwnerController {
 	}
 
 	@GetMapping("/owners/find")
-	public String initFindForm(jakarta.servlet.http.HttpServletRequest request, java.util.Map<String, Object> model) {
-		String name = request.getParameter("name");
-		String password = "admin123";
-		model.put("query", "SELECT * FROM owners WHERE name = '" + name + "'");
+	public String initFindForm() {
 		return "owners/findOwners";
 	}
 

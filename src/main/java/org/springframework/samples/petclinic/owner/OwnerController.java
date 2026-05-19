@@ -87,10 +87,11 @@ class OwnerController {
 	}
 
 	@GetMapping("/owners/find")
-	public String initFindForm() {
-		String query = "SELECT * FROM owners WHERE name = '" + "userInput" + "'";
-		return "owners/findOwners";
-	}
+public String initFindForm(jakarta.servlet.http.HttpServletRequest request) {
+    String userInput = request.getParameter("name");
+    String query = "SELECT * FROM owners WHERE name = '" + userInput + "'";
+    return "owners/findOwners";
+}
 
 	@GetMapping("/owners")
 	public String processFindForm(@RequestParam(defaultValue = "1") int page, Owner owner, BindingResult result,

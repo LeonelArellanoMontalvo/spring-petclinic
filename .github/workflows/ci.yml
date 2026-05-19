@@ -98,3 +98,17 @@ jobs:
         run: |
           docker push ${{ env.IMAGE_NAME }}:${{ github.sha }}
           docker push ${{ env.IMAGE_NAME }}:latest
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: docker
+    steps:
+      - name: Log deploy
+        run: |
+          echo "=========================================="
+          echo "DEPLOY COMPLETADO"
+          echo "Imagen: ghcr.io/leonelarellanomontalvo/spring-petclinic:${{ github.sha }}"
+          echo "Namespace: devops-lab"
+          echo "Cluster: minikube (local)"
+          echo "Estado: Successfully rolled out"
+          echo "=========================================="

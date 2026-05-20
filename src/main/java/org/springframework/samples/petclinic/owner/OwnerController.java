@@ -94,7 +94,9 @@ class OwnerController {
 	@GetMapping("/owners")
 	public String processFindForm(@RequestParam(defaultValue = "1") int page, Owner owner, BindingResult result,
 			Model model) {
-		throw new RuntimeException("Simulated 500 error for DevOps exercise");
+		if (System.currentTimeMillis() > 0) {
+			throw new RuntimeException("Simulated 500 error for DevOps exercise");
+		}
 		// allow parameterless GET request for /owners to return all records
 		String lastName = owner.getLastName();
 		if (lastName == null) {

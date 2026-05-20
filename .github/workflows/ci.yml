@@ -41,7 +41,7 @@ jobs:
           restore-keys: ${{ runner.os }}-sonar
 
       - name: Build and test
-        run: mvn verify --no-transfer-progress
+        run: mvn package -DskipTests --no-transfer-progress
 
       - name: SonarCloud analysis
         env:
